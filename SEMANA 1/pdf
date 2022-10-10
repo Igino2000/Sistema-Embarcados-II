@@ -1,0 +1,187 @@
+Capítulo 1 ao 3
+Comando: su
+Descrição: Neste comando foi possível logar como root ou administrador, desta forma podemos ter alguns privilégios no sistema.
+Comando: exit
+Descrição: Sai do usuário administrador nesse caso, este comando serve para encerrar o processo.
+Comando: ls
+Descrição: O comando ls é usado para visualizar conteúdo em um diretório Comando: cp
+Descrição: Comando de cópia de arquivos Comando: ls -a
+Descrição: exibe o conteúdo em outro formato Comando: ls -l
+Descrição: exibe o conteúdo em lista Comando: ls --al
+Descrição: exibe o conteúdo em outro formato Comando: pwd --version
+Descrição: versão Comando: cd --help
+Descrição: exibe ajuda do comando cd Comando: clear
+Descrição: Limpa a tela Comando: echo ‘teste’
+Descrição: exibe o texto entre aspas no terminal Comando: echo -e
+Descrição: exibe o texto em aspas mas com caracteres especiais
+Comando: history
+Descrição: exibe o histórico de comandos Comando: echo $HISTSIZE
+Descrição: aumentar o tamanho do histórico de comandos
+Comando: export HISTSIZE =100
+Descrição: aumentar o tamanho do histórico de comandos em 100 linhas Comando: su
+Descrição: loga como administrador Comando: apt install vim Descrição: instala os pacotes vim Comando: logout
+Descrição: sai da cnta atual Comando: exit
+Descrição: sai do modo root ou da conta Comando: shutdown
+Descrição: desliga o sistema
+Comando: sudo shutdown -h 10:10 " Desligando"
+Descrição: desliga o sistema as 10:10 e mostra o aviso entre aspas Comando: sudo reboot
+Descrição: reinicia a máquina Comando: sudo shutdown -r now Descrição: reinicializa a máquina Comando: ls
+Descrição: exibe o conteúdo do diretório atual Comando: ls -1
+Descrição: exibe em formado de lista Comando: ls -ld
+Descrição: informações de um diretório sem listar o conteúdo Comando: ls --all
+Descrição: exibe arquivos ocultos Comando: ls -S
+Descrição: exibe o tamanho em blocos Comando: ls -R
+Descrição: lista recursivamente
+Comando: cd ~
+Descrição: acessa o diretório símbolo ∼ é expandido pelo interpretador como
+/home/seu_usuario ao executar o comando. Comando: cd
+Descrição: acessa um determinado diretório Comando: echo ~
+Descrição: alternativo ao comando do cd sozinho Comando: ls -la
+Descrição: acessa diretórios específicos Comando: rename teste . txt teste2 . txt Descrição: renomeia o arquivo Comando: mkdir teste/
+Descrição: cria o diretório Comando: rmdir teste/ Descrição: remove o mesmo
+Comando: mkdir tempdir1/ tempdir2/ tempdir3/ Descrição: cria vários diretórios
+Comando: rmdir tempdir1/ tempdir2/ tempdir3/ Descrição: remove os mesmos
+Comando: touch arq1 Descrição: cria o arquivo
+Comando: echo ’ Laranja ’ >> arq1 Descrição: cria um link e lista Comando: ln -s arq1 arq1 – soft Descrição: visualiza os links Comando: ls -l arq1 *
+Descrição: visualiza o link do arquivo
+Capítulo 4
+
+
+Comando: echo ’ ol á Alessandro ! ’ Descrição: imprime o texto entre aspas Comando: echo - en ’ ol á \ tAlessandro ! ’
+Descrição: imprime o texto entre aspas e habilita a interpretação dos códigos após a barra invertida
+Comando: cat a.txt Descrição: concatena arquivos Comando: cat a.txt b.txt
+Descrição: concatena os dois arquivos Comando: cat a.txt expand -t 1 Descrição: concatena e exibe Comando: cat a. txt | tr ’\t ’ ’ ’
+Descrição: concatena e muda a saída do arquivo Comando: tr ’A -Z ’ ’a -z ’ < a. txt
+Descrição: muda de A a Z
+Comando: echo ’a {1} , b {2} ’ | tr ’{} ’ ’() ’ Descrição: exibe o texto em aspas devido aos caracteres Comando: tr - dc ’ aeiouAEIOU ’ < a. txt
+Descrição: muda a saída do arquivo Comando: fmt - w10 a. txt Descrição: formata o arquivo Comando: fold -s -w 20 a . txt Descrição: limita a largura do texto Comando: cat a. txt | grep alexandro
+Descrição: concatena o arquivo de texto Comando: grep ’[0 -9] ’ a. txt
+Descrição: exibe apenas a sequência de dois ou mais números Comando: grep ’[0 -9]\{2 ,\} ’ a. txt
+Descrição: pode-se busca número de telefones por esse comando
+Comando: dmesg | egrep " firmware | amd "
+Descrição: cria expressões regulares e busca o conteúdo entre aspas Comando: dmesg | fgrep " @ "
+Descrição: procura string com alfanuméricos Comando: head a. txt
+Descrição: imprime as n linhas iniciais de um arquivo Comando: look a. txt
+Descrição: procura linhas que começa com determinado caracter Comando: nl a. txt
+Descrição: enumera as linhas Comando: cat a.txt Descrição: concatena a Comando: cat b.txt Descrição: concatena b Comando: paste a.txt b.txt Descrição: cola a com b
+Comando: paste -d , <( seq 1 3) <( seq 4 6) <( seq 7 9) Descrição: cola a sequência
+Comando: cat arquivo | rev
+Descrição: concatena e inverte a sequência de textos Comando: wc a.txt
+Descrição: mostra as linhas palavras e números de a Comando: wc -l a.txt
+Descrição: mostra as linhas palavras e números de a em lista Comando: wc -w a.txt
+Descrição: conta o número de palavras Comando: wc -c a.txt
+Descrição: conta o número de bytes Comando: echo " á é í ó ú " | wc -c Descrição: imprime o texto e conta os bytes
+Comando: echo " á é í ó ú " | wc -m
+Descrição: imprime o texto e conta os caracteres
+Capítulo 5
+
+Comando: compgen -c
+
+Descrição: saber os comandos incluídos na distribuição Comando: whoami
+Descrição: para saber a identificação Comando: id
+Descrição: faz relação entre usuários e identificadores Comando: passwd
+Descrição: alterar a senha do usuário Comando: users
+Descrição: descobre os usuários logados Comando: sudo apt - get install finger Descrição: instala os pacotes finger Comando: finger
+Descrição: fornece informações dos usuários Comando: finger -l
+Descrição: fornece informações dos usuários em lista Comando: free
+Descrição: mostra as estatísticas de uso da memória Comando: su
+Descrição: loga como administrador Comando: uname
+Descrição: apresenta informações do sistema operacional Comando: uname -m
+Descrição: verifica a plataforma Comando: uname -n
+Descrição: descobre o nome da máquina Comando: uname -a
+Descrição: apresenta todas as informações do sistema operacional Comando: uptime
+Descrição: apresenta a hora corrente, a quanto tempo o seu computador está ligado, a quantidade de usuários logados e a carga média do sistema a 1, 5 ou 15 minutos passados.
+Comando: ls --version
+Descrição: versão de um comando Comando: echo $PATH Descrição: exibe o caminho Comando: w
+Descrição: verifica quais usuários estão logados e o que eles estão fazendo Comando: whereis gcc
+Descrição: determina a localização do programa gcc Comando: which ls
+Descrição: descobre um programa que está em uso no path Comando: whatis clear
+Descrição: busca informações no sistema e limpa Comando: whatis ps
+Descrição: busca e mostra os processos correntes Comando: whatis netstat
+Descrição: busca e mostra conexões de rede Comando: whatis route
+Descrição: mostra e manipula tabela de roteamento Comando: whatis ls
+Descrição: mostra diretórios correntes Comando: whatis cat
+Descrição: concatena arquivos e imprime Comando: whatis date
+Descrição: procura dados no sistema Comando: who
+Descrição: verifica quem está logado no computador Comando: hostname ; date ; ls ;
+Descrição: exemplo de execução de múltiplos comandos com ‘;’
+Comandos capítulo 6
+Comando: ps -aef
+Descrição: apresenta os processos em execução Comando: ps -u
+Descrição: visualizar todos os processos de um determinado usuário Comando: ps - aef -r | head -5
+Descrição: lista processos que mais consomem cpu Comando: ps - aef | grep firefox
+Descrição: lista processos que mais consomem cpu de forma ordenada Comando: pstree
+Descrição: visualiza informações de um processo específico Comando: top -d 1
+Descrição: comando de controle de processos Comando: top -q
+Descrição: controle de processos Comando: top -s
+Descrição: controle de processos Comando: ps
+Descrição: visualiza uma lista de processos em execução Comando: ps -u
+Descrição: lista processos que estão rodando Comando: ps u
+Descrição: informações de cpu Comando: ps aux
+Descrição: lista dados do sistema Comando: ps x --forest
+Descrição: mostra a hierarquia de processos
+Comando: nice -19 ./ teste
+Descrição: rodando processo em background Comando: nice -10 ./ teste
+Descrição: rodando processo em background
+Comandos capítulo 7
+Comando: ls -l
+Descrição: lista conteúdos de diretório em forma de lista Comando: touch a.txt
+Descrição: cria o arquivo Comando: chmoud 777
+Descrição: é um recurso utilizado para permitir que usuários leiam, editem e executem arquivos e diretórios
+Comandos capítulo 8
+Comando: cut -d
+Descrição: lista todos os usuários do linux Comando: sudo adduser aluno
+Descrição: adiciona o usuário aluno Comando: sudo userdel aluno Descrição: deleta o usuário aluno Comando: userdel -r aluno
+Descrição: apaga usuário e arquivos do mesmo Comando: sudo usermod -e
+Descrição: modifica a conta do usuário Comando: sudo group add professores Descrição: adiciona o grupo de professores Comando: sudo groupdel professores Descrição: deleta o grupo de professores
+Comandos capítulo 9 Comandos: apt install net - tools
+Descrição: instala as ferramentas net-tools
+Comandos: hostname
+Descrição: descobre o nome da máquina Comandos: varp -a
+Descrição:
+Comandos: ifconfig
+Descrição: configura e mantem interfaces de rede Comandos: ping www . ufu . br
+Descrição: envio e recebimento de rede do site acima Comandos: ping -c 10 www . ufu . br
+Descrição: permite pingar um endereço de broadcast Comandos: ping -i 5 -c 3 www . google . com Descrição: ping com operação de tempo
+Comandos: host www . google . com Descrição: descobri endereço ip de um host Comandos:  dig www . google . com  Descrição: obter informações sobre domínios Comandos: nslookup www . google . com Descrição: descobre informações sobre domínio Comandos: sudo apt install traceroute Descrição: instala os pacotes traceroute Comandos: traceroute www.google.com
+Descrição: imprime cominhos do host até o destino Comandos: traceroute www . ufmg . br
+Descrição: imprime cominhos do host até o destino Comandos: netstat -s
+Descrição: faz rastramento das portas utilizadas no computador Comandos: netstat -i
+Descrição: estatísticas sobre as interfaces de rede Comandos: netstat - rn
+Descrição: mostra tabelas de roteamento
+Comandos: sudo apt - get install nmap Descrição: instala os pacotes nmap Comandos: nmap www . ufmg . br Descrição: faz varredura na rede Comandos: nmap -v localhost Descrição: exibe mais informações
+Comandos: nmap 192.168.0.1 192.168.0.104
+Descrição: rastreia múltiplos hosts
+Comandos: nmap www . google . com www . facebook . com Descrição: rastreia múltiplos domínios
+Comandos: nmap 192.168.0.* Descrição: rastreia uma subrede Comandos: route
+Descrição: manipula as rotas de roteamento Comandos: telnet www . vivas . eng . br Descrição: protocolo de acesso remoto Comandos: ssh vivas@192 .168.0.1 Descrição: acesso remoto a um servidor Comandos: firefox &tcpdump -D
+Descrição: abre o Firefox remotamente e copia dados Comandos: apt install tcpdumptcpdump -i eno1 Descrição: instala os pacotes específicos
+Comandos: tcpdump -i eno1 Descrição: captura pacotes de rede Comandos: tcpdump -i eno1 icmp Descrição: captura pacotes de rede Comandos: sudo apt install lynx Descrição: Instala pacotes do lynx
+
+Comandos capítulo 10
+Comando: apt update
+Descrição: o apt-get update com privilégios de administrador é o primeiro comando que você precisa executar em qualquer sistema Linux após uma nova instalação. Esse comando atualiza o banco de dados e informa ao seu sistema se há pacotes mais novos disponíveis ou não.
+Comando: apt upgrade
+Descrição: o comando apt-upgrade sempre buscará atualizar os pacotes de software instalados se novas versões forem encontradas nos repositórios. Não desencadeia a remoção de nenhum pacote. Enquanto isso, apt-get dist-upgrade irá deletar alguns pacotes quando for necessário fazê-lo durante a atualização dos pacotes de software.
+Comando: apt list -- upgradable
+Descrição: apresenta o comando para consultar quais pacotes podem ser atualizados Comando: apt install vim
+Descrição: instalar os pacotes do vim Comando: apt remove vim Descrição: remover pacotes do vim Comando: dnf install lshw
+Descrição: novo pacote no Fedora, e instalação do pacote lshw
+Comandos capítulo 14
+Comando: uname -a
+Descrição: versão do kernel linux Comando: uname -s
+Descrição: nome da máquina Comando: uname -n Descrição: nome
+Comando: uname -r Descrição: versao Comando: uname -v Descrição: versão completa Comando: lscpu
+Descrição: fornece informações sobre a cpu Comando: sudo fdisk -l
+Descrição: lista as partições do disco
+Comando: lsusb
+Descrição: este comando exibe informações sobre dispositivos USB (Universal Serial Bus)
+Comando: lspci
+Descrição: o lspci é útil para mostrar todas as informações sobre os barramentos PCI do sistema e os dispositivos conectados a eles.
+Comando: apt-get install pcmciautils Descrição: instalação do pcmciautils Comando: lspcmcia
+Descrição: o comando lspcmcia lista todos os dispositivos PCMCIA em seu computador Comando: free -m
+Descrição: verifica o arquivo meminfo no diretório /proc como na Listagem. Comando: vmstat -s
+Descrição: listando informações sobre a memória Comando: lsmem
+Descrição: informações da memória naquele diretório Comando: dmidecode -t 17
+Descrição: informações de memória ram Comando: sudo apt-get install hwinfo Descrição: insalando pacote hwinfo Comando: eject
+Descrição: o comando eject pode ser utilizado para ejetar CDROMs ou DVDs de seu computador.
