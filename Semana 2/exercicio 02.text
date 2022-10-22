@@ -1,0 +1,81 @@
+a) - ETAPA 1: Biblioteca e arquivos de inclusão:
+
+Se você tiver biblioteca ou incluir arquivos em locais não padrão, o -L{DIRNAME} e
+As opções -I{DIRNAME} permitem especificar esses locais e garantir que eles sejam
+pesquisado antes dos locais padrão. Por exemplo, se você armazenar arquivos de inclusão personalizados em
+/usr/local/include/killerapp, então para que o gcc os encontre, sua invocação do gcc
+seria algo como:
+$ gcc someapp.c -I/usr/local/include/killerapp.
+
+Da mesma forma, suponha que você esteja testando uma nova biblioteca de programação, libnew.so (.so é o
+extensão normal para bibliotecas compartilhadas— mais sobre este assunto no Capítulo 24, “Usando
+Bibliotecas”) atualmente armazenado em /home/fred/lib, antes de instalá-lo como um sistema padrão
+biblioteca. Suponha também que os arquivos de cabeçalho sejam armazenados em /home/fred/include.
+Assim, para vincular a libnew.so e ajudar o gcc a encontrar os arquivos de cabeçalho, seu gcc
+linha de comando deve ser semelhante ao seguinte:
+$gcc myapp.c -L/home/fred/lib -I/home/fred/include -lnew.
+se você deve vincular a bibliotecas estáticas, você tem
+para usar a opção -static. Isso significa que apenas bibliotecas estáticas serão usadas. O exemplo a seguir cria um executável vinculado aos ncurses estáticos. Capítulo 27, “Tela
+Manipulação com ncurses”, discute a programação da interface do usuário com ncurses:
+$ gcc cursesapp.c -lncurses -static.
+
+ETAPA 2: Verificação de erros e avisos:
+
+O gcc possui uma classe inteira de opções de linha de comando para verificação de erros, geração de avisos.
+Estes incluem erros -ansi, -pedantic, -pedantic- e -Wall. Começar com,
+-pedantic diz ao gcc para emitir todos os avisos exigidos pelo estrito padrão ANSI/ISO C. Qualquer
+programa usando extensões proibidas, como aquelas suportadas pelo gcc, serão rejeitadas.
+-pedantic-errors se comporta de maneira semelhante, exceto que emite erros em vez de avisos.
+-ansi, finalmente, desativa as extensões GNU que não estão de acordo com o padrão. Nenhum
+essas opções, no entanto, garantem que seu código, quando compilado sem erros usando qualquer
+ou todas essas opções, é 100% compatível com ANSI/ISO.
+
+CÓDIGO DE FONTE NÃO ANSI/ISO:
+1 /*
+2 * Listing 3.2
+3 * pedant.c - use -ansi, -pedantic or -pedantic-errors
+4 */
+5 #include <stdio.h>
+6
+7 void main(void)
+8 {
+9 long long int i = 0l;
+10 fprintf(stdout, “This is a non-conforming C program\n”);
+11 }
+
+ETAPA 3 : Opções de otimização
+A otimização de código é uma tentativa de melhorar o desempenho. A troca é alongada
+tempos de compilação e maior uso de memória durante a compilação.
+A opção bare -O diz ao gcc para reduzir o tamanho do código e o tempo de execução. É equivalente
+para -O1. Os tipos de otimização realizados neste nível dependem do processador de destino,
+mas sempre inclua pelo menos saltos de thread e pops de pilha adiados. As otimizações de salto de thread tentam reduzir o número de operações de salto; pops de pilha adiados ocorrem quando
+o compilador permite que os argumentos se acumulem na pilha à medida que as funções retornam e, em seguida, aparecem
+simultaneamente, em vez de exibir os argumentos aos poucos conforme cada função chamada retorna.
+
+ETAPA 4: Opções de depuração:
+Bugs are as inevitable as death and taxes. To accommodate this sad reality, use gcc’s -g
+and -ggdb options to insert debugging information into your compiled programs to facilitate debugging sessions.
+The -g option can be qualified with a 1, 2, or 3 to specify how much debugging information to include. The default level is 2 (-g2), which includes extensive symbol tables, line
+numbers, and information about local and external variables. Level 3 debugging information includes all of the level 2 information and all of the macro definitions present. Level
+1 generates just enough information to create backtracks and stack dumps. It does not
+generate debugging information for local variables or line numbers. compiled it with the -g and -ggdb options 
+$ gcc -g hello.c -o hello_g
+$ ls -l hello_g
+-rwxr-xr-x 1 kwall users 6809 Jan 12 15:09 hello_g*
+$ gcc -ggdb hello.c -o hello_ggdb
+$ ls -l hello_ggdb
+-rwxr-xr-x 1 kwall users 354867 Jan 12 15:09
+hello_ggdb*
+
+As you can see, the -g option increased the binary’s size by half, while the -ggdb option
+bloated the binary nearly 900 percent! Despite the size increase, I recommend shipping
+binaries with standard debugging symbols (created using –g) in them in case someone
+encounters a problem and wants to try to debug your code for you.
+
+b)  -static : Link para bibliotecas estáticas.
+     ii) -g  :Inclua informações de depuração padrão no binário.
+     iii) -pedantic: Emite todos os avisos exigidos pelo padrão ANSI/ISO C.
+     iv) -Wall :Emite todos os avisos geralmente úteis que o gcc pode fornecer.
+ Avisos específicos também podem ser sinalizados usando -W{warning}.
+ v) -Os :Otimize o código compilado.
+ vi) -O3 : Especifique um nível de otimização N, 0<=N<= 3.
