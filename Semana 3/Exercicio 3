@@ -1,0 +1,153 @@
+Printing the Process ID:
+
+#include <stdio.h>
+#include<unistd.h>
+
+int ()
+{
+   printf("the process ID is %d\n",(int) getpid () );
+   printf("the parent process ID is %d\n", (int) getpid());
+   return 0;
+   }
+   
+   Observe que se você chamar este programa várias vezes, um ID de processo diferente será relatado porque cada invocação está em um novo processo. No entanto, se você invocá-lo a cada
+tempo do mesmo shell, o ID do processo pai (ou seja, o ID do processo do shell processo) é o mesmo.
+
+Usando o sistema:
+
+#include<stdlib.h>
+
+int main()
+{
+int return_value;
+return_value = system ("ls-l/");
+return return_value;
+}
+
+A função do sistema retorna o status de saída do comando shell. Se a própria casca
+não pode ser executado, o sistema retorna 127; se ocorrer outro erro, o sistema retornará –1.
+Como a função do sistema usa um shell para invocar seu comando, ela está sujeita a
+os recursos, limitações e falhas de segurança do shell do sistema.
+disponibilidade de qualquer versão específica do shell Bourne. Em muitos sistemas UNIX,
+/bin/sh é um link simbólico para outro shell. Por exemplo, na maioria dos sistemas GNU/Linux,
+/bin/sh aponta para bash (o Bourne-Again SHell), e diferentes GNU/Linux
+distribuições usam diferentes versões do bash.
+
+Usando fork para duplicar o processo de um programa:
+
+#include <stdio.h>
+#include <says/types.h>
+#include<unistd.h.>
+
+int main()
+{
+pid_t child_pid;
+
+printf ("the main program process ID is %d\n", (int) getpid () );
+
+child_pid = fork();
+if (child_pid !=0) {
+printf("this is the parent process, with id %d\n", (int) getpid() );
+printf("the child's process ID is %d\n", (int) child_pid);
+}
+else
+    printf("this is the child process,with id%\n" (int) getpid());
+    return 0;
+    }
+    
+    Using a Signal Handler:
+    
+ #include <signal.h>
+ #include <stdio.h>
+ include <string.h>
+ include <sys/types.h>
+ #include<unistd.h>
+ 
+ sig_atomi_t sigusr1_count =0;
+ 
+ void handler (int signal_number)
+ {
+    ++sigusr1_count ;
+  }
+   int main()
+   {
+     struct sigaction sa;
+     memset(&sa,0,sizeof (sa));
+     sa.sa_handler=&handler;
+     sigaction (SIGURS1,&Sa,NULL);
+     
+     /*DO some lengthy stuff here. */
+     /*...*/
+     printf("SIGUSR1 was raised %d times\n", sigusr1_count);
+     return 0;
+     }
+    
+ 
+ Making a Zombie Process:
+ 
+ #include <stdlib.h>
+ #include <sys/types.h>
+ #include <unistd.h>
+ 
+ int main()
+ {
+    pid_child_pid;
+    
+    /*create a child process. */
+    
+    child_pid = fork ();
+    if ( child_pid >0) {
+           /* This is the parent process. Sleep for a minute. */
+           sleep (60);
+           }
+           else{
+           /*This is the child process. Exit immediatly. */
+           exit (0);
+           }
+           return 0;
+           }
+           
+compilar este arquivo para um executável chamado make-zombie. Execute-o e enquanto ainda estiver
+executando, liste os processos no sistema invocando o seguinte comando em
+outra janela:
+%ps-e-o pid, ppid,stat,cmd.
+
+
+Isso lista o ID do processo, o ID do processo pai, o status do processo e o comando do processo
+linha. Observe que, além do processo parental make-zumbie, existe outro
+processo make-zumbie listado. É o processo filho; observe que seu ID de processo pai é
+o ID do processo principal do processo make-zombie. O processo filho é marcado como
+<defunct>, e seu código de status é Z, para zumbi.
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+    
+    
+    
+    
+    
+
+
+
+
+
+
+
+
+
+
+
